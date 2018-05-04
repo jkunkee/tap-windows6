@@ -94,6 +94,17 @@ Arguments:
     NdisZeroMemory(&GlobalData, sizeof(GlobalData));
 
     //
+    // Check what NDIS version is supported by the OS
+    //
+    GlobalData.NdisVersion = NdisGetVersion();
+    if (GlobalData.NdisVersion < NDIS_RUNTIME_VERSION_620) {
+        return NDIS_STATUS_UNSUPPORTED_REVISION;
+    }
+    if (GlobalData.NdisVersion > NDIS_RUNTIME_VERSION_620) {
+        GlobalData.NdisVersion = NDIS_RUNTIME_VERSION_630;
+    }
+
+    //
     // The ApaterList in the GlobalData structure is used to track multiple
     // adapters controlled by this miniport.
     //
