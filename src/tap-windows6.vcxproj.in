@@ -115,7 +115,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4201;4214;4127;4366;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);TAP_DRIVER_MAJOR_VERSION=@PRODUCT_TAP_WIN_MAJOR@;TAP_DRIVER_MINOR_VERSION=@PRODUCT_TAP_WIN_MINOR@;NDIS_MINIPORT_DRIVER=1;NDIS620_MINIPORT=1;NTDDI_VERSION=NTDDI_WIN7</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);TAP_DRIVER_MAJOR_VERSION=@PRODUCT_TAP_WIN_MAJOR@;TAP_DRIVER_MINOR_VERSION=@PRODUCT_TAP_WIN_MINOR@;NDIS_MINIPORT_DRIVER=1;NDIS620_MINIPORT=1;NDIS630_MINIPORT=1;NTDDI_VERSION=NTDDI_WIN7</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(DDK_LIB_PATH)BufferOverflowK.lib;%(AdditionalDependencies);$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;ndis.lib;ntstrsafe.lib;wdmsec.lib</AdditionalDependencies>
