@@ -931,19 +931,39 @@ Return Value:
 
         break;
 
-        // TODO: Inplement these query information requests.
+        // TODO: Correctly implement these mandatory query information requests.
     case OID_GEN_RECEIVE_BUFFER_SPACE:
+
+        ulInfo = 1024*1024;
+        pInfo = &ulInfo;
+        break;
+
+    case OID_GEN_TRANSMIT_BUFFER_SPACE:
+
+        ulInfo = 1024*1024;
+        pInfo = &ulInfo;
+        break;
+
     case OID_GEN_MAXIMUM_SEND_PACKETS:
+
+        ulInfo = 1024;
+        pInfo = &ulInfo;
+        break;
+
+        // TODO: Inplement these query information requests.
     case OID_GEN_TRANSMIT_QUEUE_LENGTH:
+#ifdef IMPLEMENT_OPTIONAL_OIDS
     case OID_802_3_XMIT_HEARTBEAT_FAILURE:
     case OID_802_3_XMIT_TIMES_CRS_LOST:
     case OID_802_3_XMIT_LATE_COLLISIONS:
+#endif
 
     default:
         //
         // The entry point may by used by other requests
         //
         status = NDIS_STATUS_NOT_SUPPORTED;
+        ulInfoLen = 0;
         break;
     }
 
